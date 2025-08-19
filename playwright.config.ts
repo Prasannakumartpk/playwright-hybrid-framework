@@ -11,7 +11,7 @@ import dotenv from 'dotenv'
 dotenv.config({
   path: process.env.ENV_NAME
     ? `./env-files/.env.${process.env.ENV_NAME}`
-    : `./env-files/.env.demo`
+    : `./env-files/.env.qa`
 });
 
 /**

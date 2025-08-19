@@ -7,7 +7,7 @@ export default class CommonUtils {
     /**
      * Initilizing Secret Key
      */
-    constructor() {
+    /* constructor() {
         //this.secretKey = process.env.SECRET_KEY ? process.env.SECRET_KEY : "";
 
         if (process.env.SECRET_KEY) {
@@ -15,7 +15,7 @@ export default class CommonUtils {
         } else {
             throw new Error("Please provide Secret Key while starting execution.")
         }
-    }
+    } */
 
     /**
      * Provide Encrypted Data from String
