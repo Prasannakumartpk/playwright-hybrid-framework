@@ -23,6 +23,7 @@ await page.locator("").click({button:'left'});
 
     // Radio Button or Check Boxes
 await page.locator("#terms").check();
+await expect(page.locator("")).toBeChecked();
 await page.locator("#terms").uncheck();
 
     // Drop Down - By using Visible Text, Value, Index and Label    
