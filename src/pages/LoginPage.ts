@@ -1,25 +1,43 @@
-import{Locator, Page} from '@playwright/test'
+import { Locator, Page } from '@playwright/test'
 
-export class LoginPage{
-    readonly page:Page;
+export class LoginPage {
+    readonly page: Page;
     readonly userNameInput: Locator;
     readonly passwordInput: Locator;
     readonly submitButton: Locator;
     readonly invalidCredentialsErrorPopup: Locator;
 
-    constructor(page:Page){
+
+    constructor(page: Page) {
         this.page = page;
         this.userNameInput = page.getByRole('textbox', { name: 'Username' });
         this.passwordInput = page.getByRole('textbox', { name: 'Password' });
         this.submitButton = page.getByRole('button', { name: 'Login' });
         this.invalidCredentialsErrorPopup = page.locator(".oxd-text.oxd-text--p.oxd-alert-content-text");
 
+
+    }
+
+    /**
+   * Dynamic Add Link for any date
+   */
+    addLinkForDate(date: string): Locator {
+        return this.page.locator(`a.add_link[onclick*="${date}"]`);
+    }
+
+    /**
+     * Click Add Link for today
+     */
+    async clickAddLinkForToday() {
+        const today = new Date().toISOString().split('T')[0]; // e.g. "2025-09-02"
+        const addLink = this.addLinkForDate(today);
+        await addLink.click();
     }
 
     /**
      * To open URL into browser
      */
-    async gotoOrangeHrm(){
+    async gotoOrangeHrm() {
         await this.page.goto(`${process.env.BASE_URL}`);
     }
 
@@ -28,7 +46,7 @@ export class LoginPage{
      * @param userName 
      * @param password 
      */
-    async loginOrangeHrm(userName: string, password: string){
+    async loginOrangeHrm(userName: string, password: string) {
         await this.userNameInput.fill(userName);
         await this.passwordInput.fill(password);
         await this.submitButton.click();
