@@ -33,7 +33,7 @@ export class LoginPage {
         const addLink = this.addLinkForDate(today);
         await addLink.click();
     }
-
+ 
     /**
      * To open URL into browser
      */

@@ -92,9 +92,10 @@ export default defineConfig({
   {
     name: 'Google Chrome',
     dependencies:['Setup'],
-    use: { ...devices['Desktop Chrome'], channel: 'chrome',
-      storageState:'./playwright/.auth/auth.json'
+    use: { ...devices['Desktop Chrome'], channel: 'chrome', launchOptions: {slowMo: 1000},
+      storageState:'./playwright/.auth/auth.json',
      },
+     
   },
   ],
 

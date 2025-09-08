@@ -1,4 +1,4 @@
-import{test as baseTest} from './common-fixture';
+import{test as baseTest} from '../fixtures/pom-fixture';
 
 type HooksFixtureType = {
     gotoUrl: any;

@@ -13,7 +13,7 @@ test.describe('Invalid Login Test',()=>{
         type:'Test Case Link',
         description:'Link'
     }
-}, async({gotoUrl, loginPage, commonUtils})=>{
+}, async({gotoUrl, loginPage})=>{
     //const username = commonUtils.decryptData(process.env.USER_NAME!);
     await loginPage.loginOrangeHrm(`${process.env.USER_NAME}`, loginModuleData.wrong_password);
     await expect(loginPage.invalidCredentialsErrorPopup).toHaveText(loginModuleData.invalid_credentials_text);
@@ -26,7 +26,7 @@ test('[Login] Verify that the user cannot login with an invalid username.',{
         type:'Test Case Link',
         description:'Link'
     }
-}, async({gotoUrl, loginPage, commonUtils})=>{
+}, async({gotoUrl, loginPage})=>{
     //const password = commonUtils.decryptData(process.env.PASSWORD!);
     await loginPage.loginOrangeHrm(loginModuleData.wrong_username, `${process.env.PASSWORD}`);
     await expect(loginPage.invalidCredentialsErrorPopup).toHaveText(loginModuleData.invalid_credentials_text);
@@ -39,7 +39,7 @@ test('[Login] Verify that the user cannot login with both an invalid username an
         type:'Test Case Link',
         description:'Link'
     }
-}, async({gotoUrl, loginPage, commonUtils})=>{
+}, async({gotoUrl, loginPage})=>{
     await loginPage.loginOrangeHrm(loginModuleData.wrong_username, loginModuleData.wrong_password);
     await expect(loginPage.invalidCredentialsErrorPopup).toHaveText(loginModuleData.invalid_credentials_text);
     await expect(loginPage.userNameInput).toBeVisible();
