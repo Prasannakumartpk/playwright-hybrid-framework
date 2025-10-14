@@ -1,10 +1,7 @@
 import { expect } from '@playwright/test';
-import{test} from '../fixtures/common-fixture';
+import{test} from '../../fixtures/hooks-fixture';
 
-test('Global Setup for Auto Login', async({page, loginPage, dashboardPage, commonUtils})=>{
-
-    //const decryptedUserName = commonUtils.decryptData(process.env.USER_NAME!);
-    //const decryptedPassword = commonUtils.decryptData(process.env.PASSWORD!);
+test('Global Setup for Auto Login', async({page, loginPage, dashboardPage})=>{
 
     await loginPage.gotoOrangeHrm();
     await loginPage.loginOrangeHrm(`${process.env.USER_NAME}`, `${process.env.PASSWORD}`);
